@@ -16,8 +16,9 @@
         function aa(){
             FB.getLoginStatus(function(response) {
                 if(response.status=== "connected"){
-                    FB.api('/me', {fields: 'name'}, function(response) {
-                        document.getElementById('status').innerHTML = "Hello" + response;
+                    FB.api('/me', function(response) {
+                        console.log(response);
+                        document.getElementById('status').innerHTML = "Hello" + response.name;
                     });
 
                 }
