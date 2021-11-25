@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=4489832891108172&autoLogAppEvents=1" nonce="IVNDCYuP"></script>
+<div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" onlogin="aa()"></div>
+<div id="status">Please Login</div>
+<script>
+        function aa(){
+            FB.getLoginStatus(function(response) {
+                if(response.status=== "connected"){
+                    FB.api('/me', {fields: 'name'}, function(response) {
+                        document.getElementById('status').innerHTML = "Hello" + response;
+                    });
+
+                }
+});
+        }
+</script>
+</body>
+</html>
