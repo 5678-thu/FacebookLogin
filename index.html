@@ -17,6 +17,7 @@
 <div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" onlogin="aa()"></div>
 <div id="status">Please Login</div>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
+<div id="google">Plesae Login Google</div>
 <script>
         function aa(){
             FB.getLoginStatus(function(response) {
@@ -31,6 +32,7 @@
         }
         function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
+  document.getElementById('google').innerHTML = "Hi" + profile.getName();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
